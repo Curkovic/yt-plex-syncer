@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>INTEL_VIEWPORT // YT_PLEX_SYNCER</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --term-cyan: #00f0ff;
+                --term-green: #00ff66;
+                --term-orange: #ff9900;
+                --term-red: #ff003c;
+                --term-black: #050508;
+                --term-panel: #0d0d14;
+                --term-glow-cyan: rgba(0, 240, 255, 0.2);
+                --term-glow-green: rgba(0, 255, 102, 0.15);
+                --term-line: rgba(0, 240, 255, 0.15);
+            }
+
+            body {
+                background-color: var(--term-black);
+                color: rgba(255, 255, 255, 0.85);
+                font-family: "Rajdhani", sans-serif;
+                min-height: 100vh;
+                overflow-x: hidden;
+                background:
+                    radial-gradient(
+                        circle at top right,
+                        rgba(0, 240, 255, 0.08),
+                        transparent 35%
+                    ),
+                    radial-gradient(
+                        circle at bottom left,
+                        rgba(255, 0, 60, 0.05),
+                        transparent 40%
+                    ),
+                    var(--term-black);
+            }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                pointer-events: none;
+                background: linear-gradient(
+                    rgba(18, 16, 24, 0) 50%,
+                    rgba(0, 0, 0, 0.3) 50%
+                );
+                background-size: 100% 4px;
+                opacity: 0.35;
+                z-index: 1000;
+            }
+
+            .term-border {
+                border: 1px solid var(--term-line);
+                background: var(--term-panel);
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(4px);
+                clip-path: polygon(0 0, 100% 0, 100% 99%, 99% 100%, 0 100%);
+            }
+
+            pre,
+            code {
+                font-family: "Fira Code", monospace;
+            }
+
+            .cyber-blockquote {
+                background: rgba(255, 153, 0, 0.03);
+                border-left: 3px solid var(--term-orange);
+            }
+
+            .alert-box {
+                background: rgba(255, 0, 60, 0.03);
+                border: 1px solid rgba(255, 0, 60, 0.2);
+            }
+
+            /* Lightbox overlay styling */
+            .lightbox {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(5, 5, 8, 0.95);
+                backdrop-filter: blur(8px);
+                z-index: 2000;
+                cursor: zoom-out;
+            }
+            .lightbox.active {
+                display: flex;
+            }
+        </style>
+    </head>
+    <body class="selection:bg-cyan-900 selection:text-white antialiased">
+        <main
+            class="max-w-4xl mx-auto px-4 py-8 md:py-16 relative z-10 min-h-screen flex flex-col justify-between"
+        >
+            <nav class="mb-10">
+                <a
+                    href="blog_index.html"
+                    class="inline-flex items-center text-[10px] font-bold uppercase tracking-[0.3em] opacity-60 hover:opacity-100 transition-all duration-300 group text-white"
+                >
+                    <i
+                        class="fas fa-chevron-left mr-3 transform group-hover:-translate-x-1.5 transition-transform text-[var(--term-cyan)]"
+                    ></i>
+                    cd .. / return_to_index
+                </a>
+            </nav>
+
+            <article class="term-border p-6 md:p-10 space-y-8 flex-grow">
+                <header class="space-y-4 pb-6 border-b border-zinc-900">
+                    <div
+                        class="flex flex-wrap items-center justify-between gap-4"
+                    >
+                        <span
+                            class="bg-cyan-950 text-[var(--term-cyan)] px-2.5 py-0.5 text-[9px] font-mono font-bold uppercase tracking-wider rounded border border-[var(--term-line)]"
+                        >
+                            INTEL_DECRYPT // AUTOMATION
+                        </span>
+                        <div
+                            class="flex items-center space-x-4 font-mono text-[9px] text-zinc-500"
+                        >
+                            <span>TIMESTAMP: 2026.06.12</span>
+                            <span>CLEARANCE: PUBLIC_ACCESS</span>
+                        </div>
+                    </div>
+
+                    <h1
+                        class="text-2xl md:text-4xl font-black uppercase tracking-tight font-['Orbitron'] text-white"
+                    >
+                        Building a Bulletproof YouTube to Plex Sync Engine
+                    </h1>
+
+                    <div
+                        class="flex items-center space-x-3 text-xs text-zinc-400 font-mono"
+                    >
+                        <i
+                            class="fas fa-user-shield text-[var(--term-cyan)]"
+                        ></i>
+                        <span>DECRYPTED BY: MATE ĆURKOVIĆ</span>
+                        <span class="text-zinc-600">//</span>
+                        <span>TAGS: #BASH #PLEX #YT-DLP #LINUX</span>
+                    </div>
+                </header>
+
+                <section
+                    class="space-y-6 text-sm md:text-base text-zinc-300 leading-relaxed font-['Rajdhani']"
+                >
+                    <p
+                        class="text-base md:text-lg text-white font-semibold leading-normal"
+                    >
+                        Tired of streaming algorithms dictating your media
+                        intake? This operational intelligence log outlines how
+                        to deploy a localized, zero-maintenance automation grid
+                        that archives content directly from the mesh into your
+                        private Plex interface.
+                    </p>
+
+                    <!-- News-style inline wrapped image -->
+                    <div
+                        class="md:float-right md:ml-6 md:mb-4 w-full md:w-64 border border-zinc-800 bg-zinc-950 p-2 rounded text-center mx-auto float-none mb-6"
+                    >
+                        <img
+                            src="https://itechie.eu/yt-plex-syncer/plex_ios.PNG"
+                            alt="Plex iOS Interface Showcase"
+                            class="cursor-zoom-in opacity-90 hover:opacity-100 transition-opacity rounded max-w-full h-auto mx-auto"
+                            onclick="openLightbox(this.src)"
+                        />
+                        <span
+                            class="block text-[10px] font-mono text-zinc-500 mt-1.5 uppercase tracking-wider"
+                            ><i class="fas fa-search-plus mr-1"></i> Click to
+                            expand view</span
+                        >
+                    </div>
+
+                    <h2
+                        class="text-lg md:text-xl font-bold uppercase tracking-wider font-['Orbitron'] text-white pt-4"
+                    >
+                        01 // Core Purpose
+                    </h2>
+                    <p>
+                        The primary objective of this project is structural
+                        sovereignty over your video content. Streaming services
+                        constantly rotate, drop, or alter content, all while
+                        tracking your telemetry data. By building an automated
+                        archive engine via
+                        <code class="text-[var(--term-cyan)]">yt.sh</code>, you
+                        establish a resilient, offline repository. This local
+                        database feeds directly into home server dashboards like
+                        Plex, letting you consume high-quality education, tech
+                        analysis, and science records without advertisement
+                        interruptions or data harvesting pipelines.
+                    </p>
+
+                    <h2
+                        class="text-lg md:text-xl font-bold uppercase tracking-wider font-['Orbitron'] text-white pt-4"
+                    >
+                        02 // Metadata Injection & Plex Synergy
+                    </h2>
+                    <p>
+                        Raw files dumped blindly into standard media folders
+                        cause indexation errors inside your server interface.
+                        Plex requires logical schemas and rich identifiers to
+                        properly map titles, descriptions, and thumbnails.
+                    </p>
+                    <p>
+                        To resolve this, the script runs an array of enrichment
+                        commands that download high-resolution cover arts,
+                        convert them to crisp
+                        <code class="text-[var(--term-green)]">.jpg</code>
+                        textures, and stitch them directly into the output
+                        containers.
+                    </p>
+
+                    <div class="alert-box p-5 rounded-sm my-6 space-y-2">
+                        <div
+                            class="flex items-center space-x-2 text-[var(--term-orange)] font-bold font-mono text-xs uppercase tracking-wider"
+                        >
+                            <i class="fas fa-info-circle"></i>
+                            <span>Operational Parameters Injected:</span>
+                        </div>
+                        <ul
+                            class="list-disc list-inside text-xs text-zinc-400 space-y-1 font-mono"
+                        >
+                            <li>
+                                <span class="text-white">--embed-metadata</span
+                                >: Binds upload dates, detailed descriptions,
+                                and video tags natively into the file
+                                header[cite: 1].
+                            </li>
+                            <li>
+                                <span class="text-white">--embed-thumbnail</span
+                                >: Embeds the visual target graphic as the
+                                actual system file preview icon[cite: 1].
+                            </li>
+                            <li>
+                                <span class="text-white"
+                                    >-o [Naming Protocol]</span
+                                >: Maps structural directory outputs dynamically
+                                into
+                                <code class="text-[var(--term-cyan)]"
+                                    >%(uploader)s/%(title)s
+                                    [%(id)s].%(ext)s</code
+                                >
+                                format[cite: 1].
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="clear-both"></div>
+
+                    <h2
+                        class="text-lg md:text-xl font-bold uppercase tracking-wider font-['Orbitron'] text-white pt-4"
+                    >
+                        03 // System Execution & Deployment
+                    </h2>
+                    <p>
+                        Deploying the execution protocol requires dropping into
+                        your terminal stack. Follow these system initialization
+                        stages precisely:
+                    </p>
+
+                    <h3
+                        class="text-sm font-mono text-white font-bold uppercase tracking-wider pt-2"
+                    >
+                        Stage A: System Permissions Elevation
+                    </h3>
+                    <p>
+                        Freshly cloned scripts down-linked from remote arrays
+                        lack executive clearance. Grant universal execution
+                        authorization to the binary using the change-mode
+                        protocol:
+                    </p>
+                    <div
+                        class="bg-zinc-950 border border-zinc-900 p-4 rounded font-mono text-xs text-emerald-400 my-2"
+                    >
+                        chmod +x yt.sh
+                    </div>
+
+                    <h3
+                        class="text-sm font-mono text-white font-bold uppercase tracking-wider pt-4"
+                    >
+                        Stage B: Manual Verification Run
+                    </h3>
+                    <p>
+                        Launch the terminal runtime directly to observe the
+                        verification checks, local dependency downloads, and
+                        loop iterations processing live:
+                    </p>
+                    <div
+                        class="bg-zinc-950 border border-zinc-900 p-4 rounded font-mono text-xs text-emerald-400 my-2"
+                    >
+                        ./yt.sh
+                    </div>
+
+                    <h3
+                        class="text-sm font-mono text-white font-bold uppercase tracking-wider pt-4"
+                    >
+                        Stage C: System Statistics Overview
+                    </h3>
+                    <div
+                        class="overflow-x-auto w-full border border-zinc-900 rounded bg-black/40 my-4"
+                    >
+                        <table
+                            class="w-full text-left font-mono text-xs border-collapse"
+                        >
+                            <thead>
+                                <tr
+                                    class="border-b border-zinc-900 bg-zinc-950/80 text-[var(--term-cyan)]"
+                                >
+                                    <th class="p-3">PARAMETER</th>
+                                    <th class="p-3">DEFAULT CONFIG</th>
+                                    <th class="p-3">TARGET VALUE</th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="divide-y divide-zinc-900 text-zinc-400"
+                            >
+                                <tr>
+                                    <td class="p-3 text-white font-bold">
+                                        MAX_HEIGHT
+                                    </td>
+                                    <td class="p-3">1080p Limit[cite: 1]</td>
+                                    <td class="p-3 text-[var(--term-green)]">
+                                        Optimized Storage Ratio
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-white font-bold">
+                                        DOWNLOAD_DIR
+                                    </td>
+                                    <td class="p-3">$HOME/Downloads/YT</td>
+                                    <td class="p-3 text-[var(--term-cyan)]">
+                                        Cross-Distro Secure Space
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 text-white font-bold">
+                                        PLAYLIST_END
+                                    </td>
+                                    <td class="p-3">
+                                        Last 3 Clips Only[cite: 1]
+                                    </td>
+                                    <td class="p-3 text-[var(--term-orange)]">
+                                        Low-Latency Scraping
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <blockquote
+                        class="cyber-blockquote p-5 rounded-sm my-6 font-mono text-xs md:text-sm text-zinc-400 italic"
+                    >
+                        "Automation is not merely a luxury; it is the deliberate
+                        construction of systemic redundancy. Ensure your
+                        networks process content while you sleep."
+                    </blockquote>
+
+                    <p>
+                        The script codebase, tracking configurations, and fully
+                        documented source trees can be sourced or customized
+                        inside the primary intelligence vault.
+                    </p>
+                </section>
+
+                <footer
+                    class="pt-8 mt-12 border-t border-zinc-900 flex flex-wrap justify-between items-center gap-4"
+                >
+                    <a
+                        href="itechie.eu"
+                        class="inline-flex items-center text-xs text-[var(--term-cyan)] hover:underline uppercase tracking-wider font-mono"
+                    >
+                        <i class="fas fa-long-arrow-alt-left mr-2"></i> Return
+                        to index directory
+                    </a>
+                    <a
+                        href="https://github.com/Curkovic/yt-plex-syncer/"
+                        target="_blank"
+                        class="inline-flex items-center text-xs bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 px-4 py-2 rounded text-white font-mono uppercase tracking-wider transition-all duration-300"
+                    >
+                        <i
+                            class="fab fa-github mr-2 text-[var(--term-green)]"
+                        ></i>
+                        Access Terminal Vault
+                    </a>
+                </footer>
+            </article>
+
+            <footer
+                class="mt-12 pt-8 border-t border-zinc-900 flex flex-wrap justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest opacity-40 font-mono"
+            >
+                <span>SECURE_VIEWPORT // 2026</span>
+                <div class="flex space-x-4">
+                    <a href="mailto:m@itechie.eu" class="hover:underline"
+                        >Contact</a
+                    >
+                    <span>End_of_Transmission</span>
+                </div>
+            </footer>
+        </main>
+
+        <!-- Lightbox Functional Modal Container -->
+        <div
+            id="lightbox"
+            class="lightbox items-center justify-center p-4"
+            onclick="closeLightbox()"
+        >
+            <img
+                id="lightbox-img"
+                src=""
+                alt="Expanded Intel Grid View"
+                class="max-w-full max-h-[90vh] object-contain border border-zinc-800 rounded shadow-2xl"
+            />
+        </div>
+
+        <!-- Lightbox Logic Engine -->
+        <script>
+            function openLightbox(src) {
+                const lightbox = document.getElementById("lightbox");
+                const lightboxImg = document.getElementById("lightbox-img");
+                lightboxImg.src = src;
+                lightbox.classList.add("active");
+                document.body.style.overflow = "hidden"; // Lock scrolling
+            }
+
+            function closeLightbox() {
+                const lightbox = document.getElementById("lightbox");
+                lightbox.classList.remove("active");
+                document.body.style.overflow = ""; // Unlock scrolling
+            }
+        </script>
+    </body>
+</html>
